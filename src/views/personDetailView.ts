@@ -1,7 +1,7 @@
 import { store } from "../store";
 import { navigate } from "../router";
 import { el, clear } from "../utils/dom";
-import { formatDate, formatDateTime } from "../utils/date";
+import { formatDate } from "../utils/date";
 import { PERSON_TYPE_LABELS } from "../types/enums";
 import {
   computePersonModel,
@@ -287,7 +287,6 @@ function renderPersonMaterialsSection(
     return section;
   }
 
-  /* 搜索框 */
   const searchRow = el("div", { class: "library-search" });
   const searchInput = el("input", {
     type: "search",
