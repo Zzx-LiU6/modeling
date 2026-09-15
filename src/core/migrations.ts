@@ -80,10 +80,18 @@ function readTraits(raw: unknown): Trait[] {
 function readPerson(raw: unknown): Person | null {
   if (!isObj(raw)) return null;
   if (typeof raw.id !== "string" || typeof raw.name !== "string") return null;
+
+  /* 老数据兼容：idol → public */
+  const rawType = raw.type as string | undefined;
+  const type: PersonType =
+    rawType === "idol"
+      ? "public"
+      : (rawType as PersonType) ?? "other";
+
   const person: Person = {
     id: raw.id,
     name: raw.name,
-    type: (raw.type as PersonType) ?? "other",
+    type,
     description:
       typeof raw.description === "string" ? raw.description : undefined,
     birthday: readOptionalStr(raw.birthday),
@@ -367,7 +375,15 @@ export function migrateToCurrent(input: unknown): AppData {
   const version =
     typeof input.schemaVersion === "number" ? input.schemaVersion : 0;
 
-  if (version === SCHEMA_VERSION) return input as unknown as AppData;
+  /* 已是当前版本：仍跑一次字段级规范化。
+     readPerson / readMaterial / readAnalysis 会处理老字段兼容
+     和枚举值迁移（如 idol → public）。这是幂等的。 */
+  if (version === SCHEMA_VERSION) {
+    const people = readArray(input.people, readPerson);
+    const materials = readArray(input.materials, readMaterial);
+    const analyses = readArray(input.analyses, readAnalysis);
+    return buildApp(SCHEMA_VERSION, people, materials, analyses, input.app);
+  }
 
   let current: AppData;
   if (version === 1) current = migrateV1ToV2(input);
