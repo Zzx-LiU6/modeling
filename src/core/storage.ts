@@ -64,18 +64,24 @@ export function loadData(): LoadResult {
     }
   }
 
-  const data = parsed as AppData;
-  if (
-    !Array.isArray(data.people) ||
-    !Array.isArray(data.materials) ||
-    !Array.isArray(data.analyses)
-  ) {
-    return {
-      data: createEmptyAppData(),
-      error: "本地数据结构异常，已使用空白数据。",
-    };
+  /* 版本相同也跑一次规范化，处理字段级兼容。 */
+  try {
+    const normalized = migrateToCurrent(parsed);
+    const saveResult = saveData(normalized);
+    if (!saveResult.ok) {
+      return {
+        data: normalized,
+        error: "数据规范化成功，但写回本地失败，请尽快导出备份。",
+      };
+    }
+    return { data: normalized };
+  } catch (e) {
+    const msg =
+      e instanceof MigrationError
+        ? e.message
+        : "数据规范化失败：" + (e as Error).message;
+    return { data: createEmptyAppData(), error: msg };
   }
-  return { data };
 }
 
 export function saveData(data: AppData): SaveResult {
