@@ -314,7 +314,7 @@ Because the data is stored locally, clearing browser storage will also remove th
 
 ## Status
 
-**V0.6.3 · Experimental**
+**V0.6.4 · Experimental**
 
 The core workflow is implemented and is currently being tested with real research materials.
 
