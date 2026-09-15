@@ -18,19 +18,44 @@ export const FUNCTION_DESCRIPTIONS: Record<CognitiveFunction, string> = {
 };
 
 export type PersonType =
-  | "self" | "friend" | "idol" | "fictional" | "other";
+  | "self"
+  | "family"
+  | "partner"
+  | "friend"
+  | "peer"
+  | "mentor"
+  | "public"
+  | "fictional"
+  | "other";
 
 export const PERSON_TYPES: readonly PersonType[] = [
-  "self", "friend", "idol", "fictional", "other",
+  "self",
+  "family",
+  "partner",
+  "friend",
+  "peer",
+  "mentor",
+  "public",
+  "fictional",
+  "other",
 ] as const;
 
 export const PERSON_TYPE_LABELS: Record<PersonType, string> = {
   self: "自己",
+  family: "家人",
+  partner: "伴侣",
   friend: "朋友",
-  idol: "偶像",
+  peer: "同学 / 同事",
+  mentor: "老师 / 导师",
+  public: "公众人物 / 偶像",
   fictional: "虚构人物",
   other: "其他",
 };
+
+/** 安全获取人物类型标签；未知类型回退到"其他" */
+export function getPersonTypeLabel(type: string): string {
+  return (PERSON_TYPE_LABELS as Record<string, string>)[type] ?? "其他";
+}
 
 export type EvidenceDirection = "support" | "against";
 
