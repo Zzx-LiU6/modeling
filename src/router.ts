@@ -1,11 +1,13 @@
 export type Route =
   | { name: "home" }
+  | { name: "howItWorks" }
   | { name: "newPerson" }
   | { name: "editPerson"; personId: string }
   | { name: "personDetail"; personId: string }
   | { name: "newResearch"; personId: string }
   | { name: "functionDetail"; personId: string; fn: string }
   | { name: "materials" }
+  | { name: "researchLibrary" }
   | { name: "newMaterial" }
   | { name: "editMaterial"; materialId: string }
   | { name: "materialDetail"; materialId: string }
@@ -22,6 +24,9 @@ export function parseHash(hash: string): Route {
 
   if (parts.length === 0) return { name: "home" };
   if (parts[0] === "new") return { name: "newPerson" };
+  if (parts[0] === "how-it-works") return { name: "howItWorks" };
+  if (parts[0] === "research" && parts.length === 1)
+    return { name: "researchLibrary" };
 
   if (parts[0] === "person" && parts[1]) {
     const personId = decodeURIComponent(parts[1]);
