@@ -15,6 +15,14 @@ import { renderMaterialDetail } from "./views/materialDetailView";
 import { renderResearchForm } from "./views/researchFormView";
 import { renderResearchDetail } from "./views/researchDetailView";
 import { renderAddMaterials } from "./views/addMaterialsView";
+import { renderResearchLibrary } from "./views/researchLibraryView";
+import { renderHowItWorks } from "./views/howItWorksView";
+import {
+  isOnboarded,
+  markOnboarded,
+  showWelcomeModal,
+} from "./components/welcomeModal";
+import { showOnboardingExample } from "./components/onboardingExample";
 
 const app = document.getElementById("app");
 if (!app) throw new Error("#app not found");
@@ -43,7 +51,7 @@ function showBanner(
 function render(route: Route): void {
   clear(app!);
 
-  /* 默认每次路由切换滚到顶部；材料库若有恢复标记会自己滚回去 */
+  /* 默认每次路由切换滚到顶部 */
   window.scrollTo(0, 0);
 
   /* 旧路由的客户端 redirect */
@@ -65,6 +73,9 @@ function render(route: Route): void {
     case "home":
       renderHome(app!);
       break;
+    case "howItWorks":
+      renderHowItWorks(app!);
+      break;
     case "newPerson":
       renderPersonForm(app!);
       break;
@@ -82,6 +93,9 @@ function render(route: Route): void {
       break;
     case "materials":
       renderMaterialLibrary(app!);
+      break;
+    case "researchLibrary":
+      renderResearchLibrary(app!);
       break;
     case "newMaterial":
       renderMaterialForm(app!);
@@ -113,3 +127,29 @@ function render(route: Route): void {
 render(parseHash(window.location.hash));
 onRouteChange((route) => render(route));
 store.subscribe(() => render(parseHash(window.location.hash)));
+
+/* 首次访问：无数据且未 onboarded 时弹欢迎 */
+const data = store.getData();
+const hasAnyData =
+  data.people.length > 0 ||
+  data.materials.length > 0 ||
+  data.analyses.length > 0;
+
+if (!isOnboarded() && !hasAnyData) {
+  showWelcomeModal({
+    onStart: () => {
+      markOnboarded();
+      navigate("/new");
+    },
+    onExample: () => {
+      markOnboarded();
+      showOnboardingExample({
+        onFinish: () => navigate("/new"),
+      });
+    },
+    onDismiss: () => {
+      markOnboarded();
+      /* 留在首页，不进行导航 */
+    },
+  });
+}
