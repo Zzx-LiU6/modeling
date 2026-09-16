@@ -120,6 +120,10 @@ Search and filter materials by title, source, tags, date, and related people.
 
 Connect multiple materials and record observations, traits, excerpts, and optional theoretical interpretations.
 
+### 📖 Research Library
+
+Browse all research notes in one place, independent of the person they belong to.
+
 ### 🏷️ Tags & Relationships
 
 Organize materials and connect one material to multiple people.
@@ -135,6 +139,10 @@ Research findings are aggregated into an evolving model rather than a one-time p
 ### 💾 Local Data Management
 
 Data is stored locally and can be exported / imported as JSON.
+
+### 🚀 First-run Onboarding
+
+A short welcome flow and a 6-step interactive example help new users understand the workflow: save a material, connect a few, and gradually build their own understanding — without needing a research question up front.
 
 ---
 
@@ -219,6 +227,8 @@ src/
 ├── components/
 │   ├── layout.ts
 │   ├── modal.ts
+│   ├── welcomeModal.ts
+│   ├── onboardingExample.ts
 │   ├── personCard.ts
 │   ├── materialCard.ts
 │   ├── analysisCard.ts
@@ -226,12 +236,14 @@ src/
 │
 ├── views/
 │   ├── homeView.ts
+│   ├── howItWorksView.ts
 │   ├── personFormView.ts
 │   ├── personDetailView.ts
 │   ├── functionDetailView.ts
 │   ├── materialLibraryView.ts
 │   ├── materialFormView.ts
 │   ├── materialDetailView.ts
+│   ├── researchLibraryView.ts
 │   ├── researchFormView.ts
 │   ├── researchDetailView.ts
 │   └── addMaterialsView.ts
@@ -269,6 +281,8 @@ Build for production:
 ```bash
 npm run build
 ```
+
+On first launch, a short welcome flow introduces the workflow. You can skip it at any time; it will not appear again.
 
 ---
 
@@ -310,11 +324,13 @@ You can export your data as JSON for backup or migration.
 
 Because the data is stored locally, clearing browser storage will also remove the locally stored data unless it has been exported beforehand.
 
+The onboarding example is fully static — it does not create any Person, Material, or Research records, and it is not included in exported JSON.
+
 ---
 
 ## Status
 
-**V0.6.4 · Experimental**
+**V0.6.6 · Experimental**
 
 The core workflow is implemented and is currently being tested with real research materials.
 
