@@ -1,0 +1,57 @@
+.layout {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 16px 64px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.app-title {
+  font-size: 1.1rem;
+  margin: 0;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.brand {
+  background: none;
+  border: none;
+  padding: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--primary);
+  letter-spacing: 0.02em;
+}
+
+.btn-back {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.btn-back:hover {
+  color: var(--text);
+}
+
+.app-main {
+  display: block;
+}
+
+@media (max-width: 520px) {
+  .layout {
+    padding: 0 12px 48px;
+  }
+  .app-header {
+    padding: 12px 0;
+  }
+}
