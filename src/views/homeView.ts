@@ -41,6 +41,10 @@ export function renderHome(container: HTMLElement): void {
   materialsBtn.addEventListener("click", () => navigate("/materials"));
   actions.appendChild(materialsBtn);
 
+  const researchBtn = el("button", { class: "btn" }, ["研究"]);
+  researchBtn.addEventListener("click", () => navigate("/research"));
+  actions.appendChild(researchBtn);
+
   const exportBtn = el("button", { class: "btn" }, ["导出 JSON"]);
   exportBtn.addEventListener("click", () => {
     downloadJSON(
@@ -169,5 +173,17 @@ export function renderHome(container: HTMLElement): void {
 
   refresh();
 
-  container.appendChild(renderLayout({ title: "Cognitive Model", content }));
+  container.appendChild(
+    renderLayout({
+      title: "Cognitive Model",
+      subtitle:
+        "观察一个人，保存发生过的事情，慢慢形成你自己的理解。",
+      headerAction: {
+        label: "?",
+        title: "How it works",
+        onClick: () => navigate("/how-it-works"),
+      },
+      content,
+    })
+  );
 }
