@@ -2553,3 +2553,685 @@
   border-color: var(--primary);
   background: #f4f8f5;
 }
+
+/* =========================================================
+   V0.6.5 追加：Onboarding / How it works / Research Library
+   ========================================================= */
+
+/* ---- Header：title wrap + subtitle + header action ---- */
+.app-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.app-subtitle {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  line-height: 1.4;
+}
+
+.header-action-btn {
+  margin-left: auto;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.header-action-btn:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: #f4f8f5;
+}
+
+/* ---- Welcome modal ---- */
+.welcome-backdrop {
+  align-items: flex-start;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.welcome-modal {
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px 26px;
+}
+
+.welcome-icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.welcome-title {
+  font-size: 1.3rem;
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.welcome-lead {
+  margin: 0 0 4px;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.welcome-sub {
+  margin: 0 0 16px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.welcome-quote {
+  margin: 0 0 20px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--primary);
+  background: #f4f8f5;
+  color: var(--primary);
+  font-style: italic;
+  font-size: 0.88rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.welcome-steps {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.welcome-step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.welcome-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.welcome-step-body {
+  display: grid;
+  gap: 2px;
+}
+
+.welcome-step-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.welcome-step-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.welcome-note {
+  margin: 0 0 20px;
+  padding: 10px 12px;
+  background: #fbfaf6;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.welcome-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---- How it works 页面 ---- */
+.view-how-it-works {
+  display: grid;
+  gap: 12px;
+}
+
+.hiw-lead {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.hiw-sub {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.hiw-quote {
+  margin: 12px 0;
+  padding: 12px 16px;
+  border-left: 3px solid var(--primary);
+  background: #f4f8f5;
+  color: var(--primary);
+  font-style: italic;
+  font-size: 0.9rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.hiw-diagram {
+  display: grid;
+  gap: 6px;
+  margin: 16px 0;
+}
+
+.hiw-stage {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  display: grid;
+  gap: 2px;
+}
+
+.hiw-stage-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+}
+
+.hiw-stage-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.hiw-arrow {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 0.9rem;
+  line-height: 1;
+  padding: 2px 0;
+}
+
+.hiw-actions {
+  margin-top: 16px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* ---- Research Library ---- */
+.view-research-library {
+  display: grid;
+  gap: 0;
+}
+
+.rl-summary-wrap {
+  margin-bottom: 12px;
+}
+
+.rl-list-wrap {
+  margin-bottom: 20px;
+}
+
+.rl-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.rl-card-inner {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.rl-card-inner:hover {
+  border-color: var(--border-strong);
+  border-left-color: var(--primary);
+}
+
+.rl-card-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.rl-card-title-untitled {
+  color: var(--text-faint);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.rl-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.rl-card-text {
+  margin: 6px 0 8px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+.rl-card-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.rl-card-footer {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+@media (max-width: 520px) {
+  .welcome-modal {
+    padding: 22px 18px;
+  }
+  .welcome-title {
+    font-size: 1.15rem;
+  }
+  .welcome-actions {
+    justify-content: stretch;
+  }
+  .welcome-actions .btn {
+    flex: 1;
+  }
+}
+
+/* =========================================================
+   V0.6.6 追加：Onboarding 重构
+   ========================================================= */
+
+/* ---- 紧凑版欢迎弹窗 ---- */
+.welcome-modal-compact {
+  max-width: 460px;
+  padding: 28px 26px;
+}
+
+.welcome-actions-stack {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+@media (max-width: 480px) {
+  .welcome-actions-stack {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---- 交互式示例：遮罩与卡片 ---- */
+.onboarding-backdrop {
+  align-items: flex-start;
+  padding-top: 5vh;
+  padding-bottom: 5vh;
+}
+
+.onboarding-modal {
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ---- 进度指示 ---- */
+.onboarding-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.onboarding-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  transition: all 0.2s;
+}
+
+.onboarding-dot.active {
+  background: var(--primary);
+  width: 20px;
+  border-radius: 3px;
+}
+
+/* ---- 内容区 ---- */
+.onboarding-body {
+  display: grid;
+  gap: 12px;
+}
+
+.onboarding-step-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.onboarding-lead {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.onboarding-lead-strong {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.onboarding-narration {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.onboarding-hint {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+.onboarding-highlight {
+  margin: 0;
+  padding: 10px 14px;
+  border-left: 3px solid var(--primary);
+  background: #f4f8f5;
+  color: var(--primary);
+  font-size: 0.86rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  line-height: 1.55;
+}
+
+/* ---- 示例 Material 卡片 ---- */
+.onboarding-material {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: #fdfcf9;
+}
+
+.onboarding-material-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 4px;
+}
+
+.onboarding-material-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.onboarding-material-content {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+/* ---- 堆叠 / 箭头 ---- */
+.onboarding-stack {
+  display: grid;
+  gap: 8px;
+}
+
+.onboarding-plus {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.onboarding-arrow {
+  text-align: center;
+  color: var(--text-faint);
+  font-size: 1rem;
+  line-height: 1;
+  padding: 2px 0;
+}
+
+/* ---- 示例 Research 卡片 ---- */
+.onboarding-research {
+  padding: 14px 16px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+}
+
+.onboarding-research-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.onboarding-research-content {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* ---- 示例 Trait 卡片 ---- */
+.onboarding-trait-card {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-sm);
+  background: #fbfaf6;
+}
+
+.onboarding-trait-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 2px;
+}
+
+.onboarding-trait-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+}
+
+/* ---- 示例 Theory 卡片 ---- */
+.onboarding-theory {
+  padding: 14px 16px;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: #fbfaf6;
+}
+
+.onboarding-theory-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-bottom: 6px;
+}
+
+.onboarding-theory-example {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+}
+
+.onboarding-theory-note {
+  margin-top: 6px;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  font-style: italic;
+}
+
+/* ---- 最后一屏的总结 ---- */
+.onboarding-summary {
+  display: grid;
+  gap: 8px;
+  margin: 4px 0;
+}
+
+.onboarding-summary-item {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+}
+
+.onboarding-summary-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 2px;
+  font-weight: 600;
+}
+
+.onboarding-summary-question {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.55;
+}
+
+/* ---- 操作区 ---- */
+.onboarding-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ---- How it works：第二句引言用低一档视觉 ---- */
+.hiw-quote-secondary {
+  margin-top: -4px;
+  background: #fbfaf6;
+  border-left-color: var(--border-strong);
+  color: var(--text-muted);
+  font-style: normal;
+}
+
+@media (max-width: 520px) {
+  .onboarding-modal {
+    padding: 20px 16px;
+    gap: 14px;
+  }
+  .onboarding-actions {
+    justify-content: stretch;
+  }
+  .onboarding-actions .btn {
+    flex: 1;
+  }
+}
+
+/* =========================================================
+   V0.6.6 微调：Onboarding 阅读节奏与信息层级
+   ========================================================= */
+
+/* ---- Welcome Modal：主标题层级 ---- */
+.welcome-eyebrow {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-top: 8px;
+  margin-bottom: 2px;
+}
+
+.welcome-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 14px;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+/* ---- Step 3：Material A/B 紧凑卡片 ---- */
+.onboarding-material-compact {
+  padding: 10px 14px;
+}
+
+.onboarding-material-compact .onboarding-material-label {
+  margin-bottom: 2px;
+}
+
+.onboarding-material-compact .onboarding-material-content {
+  font-size: 0.86rem;
+}
+
+/* ---- Step 3：Research 引用式呈现 ---- */
+.onboarding-research-quote {
+  margin: 0;
+  padding: 0;
+  border: none;
+  font-size: 0.92rem;
+  color: var(--text);
+  line-height: 1.55;
+  font-style: italic;
+}
+
+/* ---- Step 6：底部轻提示 ---- */
+.onboarding-footnote {
+  margin: 4px 0 0;
+  font-size: 0.8rem;
+  color: var(--text-faint);
+  line-height: 1.55;
+}
